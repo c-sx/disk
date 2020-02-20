@@ -33,6 +33,7 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
         //5、一但定制loginPage；那么 loginPage的post请求就是登陆
 
 
+/*
         //开启自动配置的注销功能。
         http.logout().logoutSuccessUrl("/");//注销成功以后来到首页
         //1、访问 /logout 表示用户注销，清空session
@@ -42,6 +43,7 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
         http.rememberMe().rememberMeParameter("remember");
         //登陆成功以后，将cookie发给浏览器保存，以后访问页面带上这个cookie，只要通过检查就可以免登录
         //点击注销会删除cookie
+*/
 
     }
 
