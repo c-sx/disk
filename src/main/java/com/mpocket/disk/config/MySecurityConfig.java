@@ -18,14 +18,14 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
         //super.configure(http);
         //定制请求的授权规则
         http.authorizeRequests()
-                .antMatchers("/**").permitAll()
-/*                .antMatchers("/resources/**", "/signup", "/").permitAll()
-                .antMatchers("/user/**").hasRole("USER")
+//                .antMatchers("/**").permitAll()
+                .antMatchers("/resources/**", "/").permitAll()
+                .antMatchers("/user/**").permitAll()/*hasRole("USER")*/
                 .antMatchers("/admin/**").hasRole("ADMIN")
-                .antMatchers("/db/**").access("hasRole('ADMIN') and hasRole('DBA')")*/;
+                .antMatchers("/db/**").access("hasRole('ADMIN') and hasRole('DBA')");
 
         //开启自动配置的登陆功能，效果，如果没有登陆，没有权限就会来到登陆页面
-        http.formLogin().usernameParameter("email").passwordParameter("pwd");
+        http.formLogin().usernameParameter("username").passwordParameter("password");
         //1、/login来到登陆页
         //2、重定向到/login?error表示登陆失败
         //3、更多详细规定
@@ -33,9 +33,8 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
         //5、一但定制loginPage；那么 loginPage的post请求就是登陆
 
 
-/*
         //开启自动配置的注销功能。
-        http.logout().logoutSuccessUrl("/");//注销成功以后来到首页
+        http.logout().logoutSuccessUrl("/login");//注销成功以后来到首页
         //1、访问 /logout 表示用户注销，清空session
         //2、注销成功会返回 /login?logout 页面；
 
@@ -43,7 +42,6 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
         http.rememberMe().rememberMeParameter("remember");
         //登陆成功以后，将cookie发给浏览器保存，以后访问页面带上这个cookie，只要通过检查就可以免登录
         //点击注销会删除cookie
-*/
 
     }
 
