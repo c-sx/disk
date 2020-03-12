@@ -16,6 +16,13 @@ public class UserController {
     @Autowired
     UserMapper userMapper;
 
+    @RequestMapping({"/","/hello"})
+    //登录界面，用于界面查看
+    public String login() {
+        return "hello";
+    }
+
+
     @RequestMapping(value={"/selectUserById"}, method= RequestMethod.GET)
     public User selectUserById(String id){
         User user = userMapper.selectByPrimaryKey(Integer.parseInt(id));
@@ -43,3 +50,4 @@ public class UserController {
         userMapper.deleteByPrimaryKey(Integer.parseInt(id));
     }
 }
+

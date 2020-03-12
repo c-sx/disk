@@ -9,6 +9,10 @@ public class User {
 
     private String password;
 
+    private Boolean enable;
+
+    private Boolean locked;
+
     private String email;
 
     private Integer phoneNumber;
@@ -42,7 +46,23 @@ public class User {
     }
 
     public void setPassword(String password) {
-        this.password = password == null ? null : password.trim();
+        this.password = password == null ? null :  password.trim();
+    }
+
+    public Boolean getEnable() {
+        return enable;
+    }
+
+    public void setEnable(Boolean enable) {
+        this.enable = enable;
+    }
+
+    public Boolean getLocked() {
+        return locked;
+    }
+
+    public void setLocked(Boolean locked) {
+        this.locked = locked;
     }
 
     public String getEmail() {
