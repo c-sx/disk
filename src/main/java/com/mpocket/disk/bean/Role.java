@@ -5,6 +5,8 @@ public class Role {
 
     private String name;
 
+    private String namezh;
+
     public Integer getId() {
         return id;
     }
@@ -19,5 +21,13 @@ public class Role {
 
     public void setName(String name) {
         this.name = name == null ? null : name.trim();
+    }
+
+    public String getNamezh() {
+        return namezh;
+    }
+
+    public void setNamezh(String namezh) {
+        this.namezh = namezh == null ? null : namezh.trim();
     }
 }

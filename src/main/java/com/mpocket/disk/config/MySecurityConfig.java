@@ -20,9 +20,9 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
 //                .antMatchers("/**").permitAll()
                 .antMatchers("/resources/**", "/").permitAll()
-                .antMatchers("/user/**").permitAll()/*hasRole("USER")*/
-                .antMatchers("/admin/**").hasRole("ADMIN")
-                .antMatchers("/db/**").access("hasRole('ADMIN') and hasRole('DBA')");
+                .antMatchers("/user/**").hasRole("user")/*permitAll()*/
+                .antMatchers("/admin/**").hasRole("admin")
+                .antMatchers("/db/**").access("hasRole('admin') and hasRole('dba')");
 
         //开启自动配置的登陆功能，效果，如果没有登陆，没有权限就会来到登陆页面
         http.formLogin().usernameParameter("username").passwordParameter("password");
@@ -53,7 +53,7 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     /**
-     * 设置用户密码的加密方式为MD5加密
+     * 设置用户密码的加密方式为BCrypt加密
      */
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
