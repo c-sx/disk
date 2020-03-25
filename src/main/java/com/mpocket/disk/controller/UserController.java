@@ -16,8 +16,8 @@ public class UserController {
     @Autowired
     UserMapper userMapper;
 
-    @RequestMapping({"/","/hello"})
     //登录界面，用于界面查看
+    @RequestMapping({"/","/hello"})
     public String login() {
         return "hello";
     }

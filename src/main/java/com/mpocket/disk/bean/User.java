@@ -25,6 +25,17 @@ public class User {
 
     private String userIcon;
 
+    public User(String name, String password, Boolean enable, Boolean locked, String email) {
+        this.name = name;
+        this.password = password;
+        this.enable = enable;
+        this.locked = locked;
+        this.email = email;
+    }
+
+    public User() {
+    }
+
     public Integer getId() {
         return id;
     }
@@ -46,7 +57,7 @@ public class User {
     }
 
     public void setPassword(String password) {
-        this.password = password == null ? null :  password.trim();
+        this.password = password == null ? null : password.trim();
     }
 
     public Boolean getEnable() {

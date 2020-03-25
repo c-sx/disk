@@ -4,14 +4,14 @@ import com.mpocket.disk.bean.*;
 import com.mpocket.disk.dao.RoleMapper;
 import com.mpocket.disk.dao.UserMapper;
 import com.mpocket.disk.dao.UserRoleMapper;
-import org.omg.CosNaming.NamingContextPackage.NotFound;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import java.nio.file.attribute.UserPrincipalNotFoundException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class LoginController implements UserDetailsService {
 
@@ -25,7 +25,11 @@ public class LoginController implements UserDetailsService {
     private UserRoleMapper userRoleMapper;
 
     @Override
-    public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        //根据登录邮箱从数据库索引对应账号
+        User user = userMapper.selectByEmail(email);
+
+        /*
         UserExample userExample = new UserExample();
         UserExample.Criteria userExampleCriteria = userExample.createCriteria();
         userExampleCriteria.andEmailEqualTo(s);
@@ -36,6 +40,7 @@ public class LoginController implements UserDetailsService {
             throw new UsernameNotFoundException("用户不存在！");
         }
         User user = userList.get(0);
+        */
 
         //控制台可查看用户登录数据
         System.out.println("email is : " + user.getEmail() + ", password is :" + user.getPassword());

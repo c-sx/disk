@@ -2,7 +2,9 @@ package com.mpocket.disk.dao;
 
 import com.mpocket.disk.bean.User;
 import com.mpocket.disk.bean.UserExample;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface UserMapper {
@@ -19,6 +21,8 @@ public interface UserMapper {
     List<User> selectByExample(UserExample example);
 
     User selectByPrimaryKey(Integer id);
+
+    User selectByEmail(String email);
 
     int updateByExampleSelective(@Param("record") User record, @Param("example") UserExample example);
 
