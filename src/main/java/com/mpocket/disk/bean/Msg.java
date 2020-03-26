@@ -12,17 +12,17 @@ public class Msg {
     //用户要返回给浏览器的数据
     private Map<String, Object> extend = new HashMap<String, Object>();
 
-    public static Msg success() {
+    public static Msg success(String message) {
         Msg result = new Msg();
         result.setCode(200);
-        result.setMsg("处理成功！");
+        result.setMsg(message);
         return result;
     }
 
-    public static Msg fail() {
+    public static Msg fail(String message) {
         Msg result = new Msg();
         result.setCode(400);
-        result.setMsg("处理失败！");
+        result.setMsg(message);
         result.setExtend(null);
         return result;
     }

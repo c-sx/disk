@@ -1,7 +1,6 @@
 package com.mpocket.disk.config;
 
 import com.mpocket.disk.controller.LoginController;
-import com.mpocket.disk.controller.UserController;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -15,11 +14,13 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        //关闭 CSRF 保护 ！！！后期需要打开
+        http.csrf().disable();
         //super.configure(http);
         //定制请求的授权规则
         http.authorizeRequests()
 //                .antMatchers("/**").permitAll()
-                .antMatchers("/resources/**", "/").permitAll()
+                .antMatchers("/resources/**", "/","/api/**").permitAll()
                 .antMatchers("/user/**").hasRole("user")/*permitAll()*/
                 .antMatchers("/admin/**").hasRole("admin")
                 .antMatchers("/db/**").access("hasRole('admin') and hasRole('dba')");

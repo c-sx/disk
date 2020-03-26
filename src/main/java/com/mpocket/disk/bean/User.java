@@ -15,7 +15,7 @@ public class User {
 
     private String email;
 
-    private Integer phoneNumber;
+    private String phoneNumber;
 
     private Integer ipAddress;
 
@@ -31,6 +31,16 @@ public class User {
         this.enable = enable;
         this.locked = locked;
         this.email = email;
+    }
+
+    public User(String name, String password, Boolean enable, Boolean locked, String email, String phoneNumber, String userIcon) {
+        this.name = name;
+        this.password = password;
+        this.enable = enable;
+        this.locked = locked;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.userIcon = userIcon;
     }
 
     public User() {
@@ -84,11 +94,11 @@ public class User {
         this.email = email == null ? null : email.trim();
     }
 
-    public Integer getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(Integer phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
