@@ -3,6 +3,7 @@ package com.mpocket.disk.controller;
 import com.mpocket.disk.bean.Msg;
 import com.mpocket.disk.bean.User;
 import com.mpocket.disk.dao.UserMapper;
+import com.mpocket.disk.dao.UserMapperExt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,7 +18,7 @@ import java.util.List;
 public class UserController {
 
     @Autowired
-    UserMapper userMapper;
+    UserMapperExt userMapper;
 
     /**
      * 按id查找用户
@@ -112,6 +113,13 @@ public class UserController {
         return Msg.success("更新用户数据成功！");
     }
 
+    /**
+     * 更新用户电话号码
+     *
+     * @param id          用户id
+     * @param phoneNumber 用户电话
+     * @return 返回json信息
+     */
     @RequestMapping(value = {"/updateUserInPhoneNumber/{id},{phoneNumber}"}, method = RequestMethod.PUT)
     public Msg updateUserInPhoneNumber(@PathVariable Integer id, @PathVariable String phoneNumber) {
         User user = userMapper.selectByPrimaryKey(id);

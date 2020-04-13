@@ -3,6 +3,7 @@ package com.mpocket.disk.controller;
 import com.mpocket.disk.bean.*;
 import com.mpocket.disk.dao.RoleMapper;
 import com.mpocket.disk.dao.UserMapper;
+import com.mpocket.disk.dao.UserMapperExt;
 import com.mpocket.disk.dao.UserRoleMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,7 +17,7 @@ import java.util.List;
 public class LoginController implements UserDetailsService {
 
     @Autowired
-    private UserMapper userMapper;
+    private UserMapperExt userMapper;
 
     @Autowired
     private RoleMapper roleMapper;

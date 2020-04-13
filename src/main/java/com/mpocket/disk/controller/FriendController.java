@@ -3,6 +3,7 @@ package com.mpocket.disk.controller;
 import com.mpocket.disk.bean.*;
 import com.mpocket.disk.dao.FriendsMapper;
 import com.mpocket.disk.dao.UserMapper;
+import com.mpocket.disk.dao.UserMapperExt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +21,7 @@ public class FriendController {
     FriendsMapper friendsMapper;
 
     @Autowired
-    UserMapper userMapper;
+    UserMapperExt userMapper;
 
     /**
      * 用于查询用户好友资料
